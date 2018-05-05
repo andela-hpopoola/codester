@@ -12,9 +12,12 @@ router.get('/about', function(req, res, next) {
 });
 
 /* GET About us page. */
-router.get('/contact', function(req, res, next) {
-  res.render('contact', { title: 'Contact Us' });
-});
-
+router.route('/contact')
+  .get(function(req, res, next) {
+    res.render('contact', { title: 'Contact Us' });
+  })
+  .post(function(req, res, next) {
+    res.render('thank', { title: 'Codesters' })
+  });
 
 module.exports = router;
